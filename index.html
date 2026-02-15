@@ -1,0 +1,6 @@
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    // This sends the user back to your Android app with the code
+    window.location.href = "com.google.ai.edge.gallery://oauth?code=" + code;
+</script>
