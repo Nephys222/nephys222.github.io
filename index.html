@@ -7,11 +7,15 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
+        const state = urlParams.get('state');
+    
         if (code) {
-            // This sends the code back to your Android app
-            window.location.href = "com.google.ai.edge.gallery://oauth?code=" + code;
+            // The app is listening for com.google.ai.edge.gallery://
+            // We pass the code AND state back to the app
+            const androidAppUrl = `com.google.ai.edge.gallery://oauth?code=${code}&state=${state}`;
+            window.location.href = androidAppUrl;
         } else {
-            document.body.innerHTML = "No code found in URL. Please try logging in again.";
+            document.body.innerHTML = "Authorization failed. No code found.";
         }
     </script>
 </body>
