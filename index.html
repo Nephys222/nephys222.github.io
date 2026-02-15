@@ -10,9 +10,8 @@
         const state = urlParams.get('state');
     
         if (code) {
-            // The app is listening for com.google.ai.edge.gallery://
-            // We pass the code AND state back to the app
-            const androidAppUrl = `com.google.ai.edge.gallery://oauth?code=${code}&state=${state}`;
+            // Redirect back to the app using the configured HTTPS scheme
+            const androidAppUrl = `https://nephys222.github.io/oauth?code=${code}&state=${state}`; // Adjust the path if necessary
             window.location.href = androidAppUrl;
         } else {
             document.body.innerHTML = "Authorization failed. No code found.";
